@@ -131,22 +131,7 @@ nmap <leader>lca :e app/config/app.php<cr>81Gf(%O
 nmap <leader>lcd :e app/config/database.php<cr>
 nmap <leader>lc :e composer.json<cr>
 
-" Concept - load underlying class for Laravel
-function! FacadeLookup()
-    let facade = input('Facade Name: ')
-    let classes = {
-\       'Form': 'Html/FormBuilder.php',
-\       'Html': 'Html/HtmlBuilder.php',
-\       'File': 'Filesystem/Filesystem.php',
-\       'Eloquent': 'Database/Eloquent/Model.php'
-\   }
-
-    execute ":edit vendor/laravel/framework/src/Illuminate/" . classes[facade]
-endfunction
-nmap ,lf :call FacadeLookup()<cr>
-
 " CtrlP Stuff
-
 " Familiar commands for file/symbol browsing
 map <D-p> :CtrlP<cr>
 map <C-r> :CtrlPBufTag<cr>
@@ -157,7 +142,7 @@ set wildignore+=*/public/forum/**
 
 " Open splits
 nmap vs :vsplit<cr>
-nmap sp :split<cr>
+nmap hs :split<cr>
 
 " Create/edit file in the current directory
 nmap :ed :edit %:p:h/
@@ -207,4 +192,13 @@ function! DD()
 endfunction
 nmap ,d  :call DD()<cr>
 
-nmap ,modu :! clear && cd ~/Projects/mod/v1.1 && svn update<cr>
+" Console.log
+function! ConsoleLog()
+    let name = input("What to console.log? ")
+
+    exec "normal iconsole.log(" . name . ");\<C-M>"
+
+endfunction
+nmap ,cl  :call ConsoleLog()<cr>
+
+"nmap ,modu :! clear && cd ~/Projects/mod/v1.1 && svn update<cr>
