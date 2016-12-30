@@ -1,6 +1,6 @@
 syntax enable
 
-colorscheme desert
+colorscheme atom-dark-256 
 
 set backspace=indent,eol,start
 let mapleader = ','
