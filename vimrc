@@ -20,6 +20,18 @@ set t_CO=256
 set hlsearch
 set incsearch
 
+" Make new horizontal splits appear on the bottom
+set splitbelow
+
+" Make new vertical splits appear on the right
+set splitright
+
+" Remap moving around splits
+nmap <C-J> <C-W><C-J>
+nmap <C-K> <C-W><C-K>
+nmap <C-H> <C-W><C-H>
+nmap <C-L> <C-W><C-L>
+
 " Jump to vimrc
 nmap <Leader>ev :tabedit $MYVIMRC<cr>
 
